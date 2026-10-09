@@ -51,11 +51,11 @@ export default function MemoryVisualization({ onNavigate }) {
       <div className="grid gap-6 lg:grid-cols-[1fr_1.5fr_1fr]">
         {/* Incoming request */}
         <div className="card flex flex-col p-5">
-          <h3 className="card-title flex items-center gap-2"><ArrowDownToLine size={18} className="text-indigo-500" /> CPU requests</h3>
+          <h3 className="card-title flex items-center gap-2"><ArrowDownToLine size={18} className="text-emerald-500" /> CPU requests</h3>
           {current ? (
             <div key={current.index} className="flex flex-1 flex-col items-center justify-center gap-3 py-8">
               <span className="muted text-xs">Reference #{current.index + 1}</span>
-              <span className="animate-pop font-mono text-6xl font-bold text-indigo-600 dark:text-cyan-300">P{current.page}</span>
+              <span className="animate-pop font-mono text-6xl font-bold text-emerald-600 dark:text-teal-300">P{current.page}</span>
               <ResultBadge hit={current.hit} large />
             </div>
           ) : (
@@ -76,10 +76,10 @@ export default function MemoryVisualization({ onNavigate }) {
         {/* Physical memory */}
         <div className="card p-5">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="card-title flex items-center gap-2"><MemoryStick size={18} className="text-cyan-500" /> Physical memory (RAM)</h3>
+            <h3 className="card-title flex items-center gap-2"><MemoryStick size={18} className="text-teal-500" /> Physical memory (RAM)</h3>
             <span className="muted text-xs">{config.frameCount} × 4 KB frames</span>
           </div>
-          <div className="space-y-2.5 rounded-2xl bg-gradient-to-b from-indigo-500/5 to-cyan-500/5 p-3 ring-1 ring-inset ring-indigo-500/10">
+          <div className="space-y-2.5 rounded-2xl bg-gradient-to-b from-emerald-500/5 to-teal-500/5 p-3 ring-1 ring-inset ring-emerald-500/10">
             {frames.map((page, f) => {
               const changed = current && current.slot === f;
               let state = page === null ? 'empty' : 'resident';
@@ -122,7 +122,7 @@ export default function MemoryVisualization({ onNavigate }) {
           </div>
 
           <div className="card p-5">
-            <h3 className="card-title flex items-center gap-2"><TableProperties size={18} className="text-indigo-500" /> Page table</h3>
+            <h3 className="card-title flex items-center gap-2"><TableProperties size={18} className="text-emerald-500" /> Page table</h3>
             <div className="mt-3 max-h-64 overflow-auto">
               <table className="w-full text-sm">
                 <thead className="muted text-left text-xs">
@@ -136,7 +136,7 @@ export default function MemoryVisualization({ onNavigate }) {
                   {uniquePages.map((p) => {
                     const f = frames.indexOf(p);
                     return (
-                      <tr key={p} className={`border-t border-slate-100 dark:border-white/5 ${current && current.page === p ? 'bg-indigo-500/10' : ''}`}>
+                      <tr key={p} className={`border-t border-slate-100 dark:border-white/5 ${current && current.page === p ? 'bg-emerald-500/10' : ''}`}>
                         <td className="py-1.5 pl-1">P{p}</td>
                         <td className="py-1.5">{f >= 0 ? f + 1 : '—'}</td>
                         <td className={`py-1.5 pr-1 text-right font-semibold ${f >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'}`}>{f >= 0 ? 1 : 0}</td>

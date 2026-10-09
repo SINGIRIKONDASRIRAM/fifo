@@ -15,8 +15,8 @@ export default function Dashboard({ onNavigate }) {
     <div className="space-y-6">
       {/* Hero: the final memory state is the centrepiece */}
       <section className="card relative overflow-hidden p-6 sm:p-8 lg:p-10">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-32 left-1/4 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-teal-400/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 left-1/4 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
 
         <div className="relative grid items-center gap-8 lg:grid-cols-[1.25fr_1fr]">
           <div>
@@ -39,7 +39,7 @@ export default function Dashboard({ onNavigate }) {
           <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-slate-950/60">
             <div className="mb-3 flex items-center justify-between text-xs">
               <span className="flex items-center gap-2 font-medium text-slate-700 dark:text-slate-300">
-                <Cpu size={14} className="text-cyan-500" /> Physical memory after the run
+                <Cpu size={14} className="text-teal-500" /> Physical memory after the run
               </span>
               <span className="muted">{isConfigured ? ALGORITHMS[config.algorithm].name : 'Not run yet'}</span>
             </div>
@@ -53,7 +53,7 @@ export default function Dashboard({ onNavigate }) {
                 <div key={f} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-white/5">
                   <span className="w-16 text-xs text-slate-500 dark:text-slate-400">Frame {f + 1}</span>
                   <span className="font-mono text-xs text-slate-400">{frameAddress(f)}</span>
-                  <span className="ml-auto font-mono text-lg font-semibold text-indigo-600 dark:text-cyan-300">{p === null ? '—' : `P${p}`}</span>
+                  <span className="ml-auto font-mono text-lg font-semibold text-emerald-600 dark:text-teal-300">{p === null ? '—' : `P${p}`}</span>
                 </div>
               ))}
             </div>
@@ -62,12 +62,12 @@ export default function Dashboard({ onNavigate }) {
       </section>
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard icon={Hash} label="Total page references" value={dash(summary.total)} hint="Length of the reference string" tone="indigo" />
+        <StatCard icon={Hash} label="Total page references" value={dash(summary.total)} hint="Length of the reference string" tone="emerald" />
         <StatCard icon={X} label="Page faults" value={dash(summary.faults)} hint={isConfigured ? `${formatPct(summary.faultRatio)} fault rate` : 'Pages loaded from disk'} tone="rose" />
         <StatCard icon={Check} label="Page hits" value={dash(summary.hits)} hint="Pages already in memory" tone="emerald" />
-        <StatCard icon={Target} label="Hit ratio" value={dash(formatPct(summary.hitRatio))} hint="Hits ÷ total references" tone="cyan">
+        <StatCard icon={Target} label="Hit ratio" value={dash(formatPct(summary.hitRatio))} hint="Hits ÷ total references" tone="teal">
           <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-            <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-700" style={{ width: `${summary.hitRatio}%` }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-700" style={{ width: `${summary.hitRatio}%` }} />
           </div>
         </StatCard>
       </section>
@@ -82,7 +82,7 @@ export default function Dashboard({ onNavigate }) {
           <p className="muted flex items-center gap-2 text-sm font-medium"><Layers size={16} /> Number of frames</p>
           <div className="mt-3 flex gap-1.5">
             {Array.from({ length: config.frameCount }, (_, i) => (
-              <span key={i} className="h-8 flex-1 rounded-md border border-indigo-400/40 bg-indigo-500/10" />
+              <span key={i} className="h-8 flex-1 rounded-md border border-emerald-400/40 bg-emerald-500/10" />
             ))}
           </div>
           <p className="muted mt-2 text-xs">{isConfigured ? `${config.frameCount} physical frame${config.frameCount > 1 ? 's' : ''} available to the process` : 'Not set'}</p>
@@ -111,8 +111,8 @@ export default function Dashboard({ onNavigate }) {
           <h3 className="card-title">FIFO vs Optimal on this string</h3>
           <div className="mt-4 space-y-3">
             {[
-              { key: 'FIFO', color: 'bg-indigo-500' },
-              { key: 'OPTIMAL', color: 'bg-cyan-400' },
+              { key: 'FIFO', color: 'bg-emerald-500' },
+              { key: 'OPTIMAL', color: 'bg-teal-400' },
             ].map(({ key, color }) => (
               <div key={key}>
                 <div className="mb-1 flex justify-between text-sm">

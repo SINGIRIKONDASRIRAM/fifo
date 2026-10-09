@@ -94,7 +94,7 @@ export default function Simulator() {
             <h3 className="card-title">Simulation configuration</h3>
             <button
               type="button"
-              className="text-xs font-medium text-slate-500 hover:text-indigo-600 disabled:opacity-40 dark:text-slate-400 dark:hover:text-cyan-300"
+              className="text-xs font-medium text-slate-500 hover:text-emerald-600 disabled:opacity-40 dark:text-slate-400 dark:hover:text-teal-300"
               disabled={running}
               onClick={() => {
                 setAlgorithm('');
@@ -170,7 +170,7 @@ export default function Simulator() {
             </p>
           )}
           {hasPendingChanges && !error && (
-            <p className="flex items-start gap-2 rounded-xl bg-indigo-500/10 px-3 py-2 text-xs text-indigo-700 dark:text-indigo-300">
+            <p className="flex items-start gap-2 rounded-xl bg-emerald-500/10 px-3 py-2 text-xs text-emerald-700 dark:text-emerald-300">
               <Info size={14} className="mt-0.5 shrink-0" /> Changes apply when you run or step. The current run keeps its old settings until then.
             </p>
           )}
@@ -203,11 +203,11 @@ export default function Simulator() {
               </span>
             </div>
             <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-              <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-500" style={{ width: `${progress}%` }} />
+              <div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-500" style={{ width: `${progress}%` }} />
             </div>
             <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[
-                { label: 'Current page', value: current ? current.page : '—', tone: 'text-indigo-600 dark:text-cyan-300' },
+                { label: 'Current page', value: current ? current.page : '—', tone: 'text-emerald-600 dark:text-teal-300' },
                 { label: 'Page faults', value: soFar.faults, tone: 'text-rose-600 dark:text-rose-400' },
                 { label: 'Page hits', value: soFar.hits, tone: 'text-emerald-600 dark:text-emerald-400' },
                 { label: 'Hit ratio so far', value: formatPct(soFar.ratio), tone: 'text-slate-900 dark:text-white' },

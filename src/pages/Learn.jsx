@@ -54,7 +54,7 @@ export default function Learn({ onNavigate }) {
           <ol className="mt-4 space-y-4">
             {FAULT_STEPS.map((s, i) => (
               <li key={i} className="flex gap-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-cyan-500 font-mono text-xs font-semibold text-white">{i + 1}</span>
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-600 to-teal-500 font-mono text-xs font-semibold text-white">{i + 1}</span>
                 <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{s}</p>
               </li>
             ))}
@@ -87,7 +87,7 @@ export default function Learn({ onNavigate }) {
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-medium text-slate-900 transition hover:text-indigo-600 dark:text-white dark:hover:text-cyan-300"
+                  className="flex w-full items-center justify-between gap-4 py-4 text-left text-sm font-medium text-slate-900 transition hover:text-emerald-600 dark:text-white dark:hover:text-teal-300"
                 >
                   {q}
                   <ChevronDown size={18} className={`shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />

@@ -5,7 +5,7 @@ const ALGOS = [
   {
     id: 'FIFO',
     name: 'FIFO (First In, First Out)',
-    accent: 'border-t-indigo-500',
+    accent: 'border-t-emerald-500',
     idea: 'Replace the page that entered memory first. Memory behaves like a queue: new pages join at the back and the victim always leaves from the front.',
     steps: [
       'Read the next page in the reference string.',
@@ -29,7 +29,7 @@ const ALGOS = [
   {
     id: 'OPTIMAL',
     name: 'Optimal (OPT / MIN)',
-    accent: 'border-t-cyan-400',
+    accent: 'border-t-teal-400',
     idea: 'Replace the page that will not be used for the longest time in the future. It gives the lowest possible number of page faults for a given number of frames.',
     steps: [
       'Read the next page in the reference string.',
@@ -79,7 +79,7 @@ export default function Algorithms() {
             <ol className="mt-2 space-y-2">
               {algo.steps.map((s, i) => (
                 <li key={i} className="flex gap-3 text-sm text-slate-600 dark:text-slate-300">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-500/10 font-mono text-xs font-semibold text-indigo-600 dark:text-indigo-300">{i + 1}</span>
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-300">{i + 1}</span>
                   {s}
                 </li>
               ))}
@@ -117,8 +117,8 @@ export default function Algorithms() {
             <thead className="bg-slate-50 text-left dark:bg-white/5">
               <tr>
                 <th className="px-5 py-3 font-medium text-slate-500 dark:text-slate-400">Property</th>
-                <th className="px-5 py-3 font-semibold text-indigo-600 dark:text-indigo-300">FIFO</th>
-                <th className="px-5 py-3 font-semibold text-cyan-600 dark:text-cyan-300">Optimal</th>
+                <th className="px-5 py-3 font-semibold text-emerald-600 dark:text-emerald-300">FIFO</th>
+                <th className="px-5 py-3 font-semibold text-teal-600 dark:text-teal-300">Optimal</th>
               </tr>
             </thead>
             <tbody>

@@ -52,8 +52,8 @@ export default function Performance({ onNavigate }) {
 
       <div className="grid gap-4 sm:grid-cols-3">
         {[
-          { label: 'FIFO', data: comparison.FIFO, color: 'text-indigo-600 dark:text-indigo-300' },
-          { label: 'Optimal', data: comparison.OPTIMAL, color: 'text-cyan-600 dark:text-cyan-300' },
+          { label: 'FIFO', data: comparison.FIFO, color: 'text-emerald-600 dark:text-emerald-300' },
+          { label: 'Optimal', data: comparison.OPTIMAL, color: 'text-teal-600 dark:text-teal-300' },
         ].map(({ label, data, color }) => (
           <div key={label} className="card p-5">
             <p className="muted text-sm font-medium">{label}</p>

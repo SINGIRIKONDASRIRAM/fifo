@@ -3,7 +3,7 @@ import { SlidersHorizontal } from 'lucide-react';
 export default function EmptyState({ onNavigate, text }) {
   return (
     <div className="card flex flex-col items-center gap-4 px-6 py-12 text-center">
-      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-300">
+      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
         <SlidersHorizontal size={22} />
       </span>
       <div>

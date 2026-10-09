@@ -24,7 +24,7 @@ export function ReferenceString({ pages, steps, currentStep, onSelect }) {
               disabled={!onSelect}
               title={done ? `Reference #${i + 1}: page ${page} (${hit ? 'hit' : 'fault'})` : `Reference #${i + 1}: page ${page}`}
               className={`relative flex h-11 w-11 items-center justify-center rounded-xl border font-mono text-lg font-semibold transition sm:h-12 sm:w-12 ${tone} ${
-                isCurrent ? 'scale-110 ring-2 ring-indigo-500 ring-offset-2 ring-offset-white dark:ring-cyan-400 dark:ring-offset-ink' : ''
+                isCurrent ? 'scale-110 ring-2 ring-emerald-500 ring-offset-2 ring-offset-white dark:ring-teal-400 dark:ring-offset-ink' : ''
               } ${onSelect ? 'cursor-pointer hover:-translate-y-0.5' : 'cursor-default'}`}
             >
               {page}
@@ -51,7 +51,7 @@ export function FrameTable({ pages, steps, currentStep, frameCount }) {
               <th
                 key={i}
                 className={`h-9 min-w-[2.5rem] rounded-lg text-center font-semibold ${
-                  i === currentStep ? 'bg-indigo-600 text-white' : 'text-slate-600 dark:text-slate-300'
+                  i === currentStep ? 'bg-emerald-600 text-white' : 'text-slate-600 dark:text-slate-300'
                 }`}
               >
                 {p}
@@ -126,7 +126,7 @@ export function StepInsight() {
   if (!current) {
     return (
       <div className="card flex items-start gap-3 p-5 text-sm">
-        <Info size={18} className="mt-0.5 shrink-0 text-indigo-500" />
+        <Info size={18} className="mt-0.5 shrink-0 text-emerald-500" />
         <p className="muted">Press <strong className="text-slate-700 dark:text-slate-200">Run simulation</strong> to play every step, or <strong className="text-slate-700 dark:text-slate-200">Step</strong> to go one reference at a time. Each decision is explained here.</p>
       </div>
     );

@@ -2,8 +2,8 @@ import { Check, Pause, Play, RotateCcw, SkipBack, SkipForward, X } from 'lucide-
 import { useSimulation } from '../context/SimulationContext';
 
 export const STATUS_META = {
-  ready: { label: 'Ready', dot: 'bg-cyan-500', pill: 'border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300' },
-  running: { label: 'Running', dot: 'bg-indigo-500 animate-pulse', pill: 'border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300' },
+  ready: { label: 'Ready', dot: 'bg-teal-500', pill: 'border-teal-500/30 bg-teal-500/10 text-teal-700 dark:text-teal-300' },
+  running: { label: 'Running', dot: 'bg-emerald-500 animate-pulse', pill: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' },
   paused: { label: 'Paused', dot: 'bg-amber-500', pill: 'border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300' },
   completed: { label: 'Completed', dot: 'bg-emerald-500', pill: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300' },
 };
@@ -35,7 +35,7 @@ export function PageHeader({ icon: Icon, title, subtitle, right }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4">
       <div className="flex items-center gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-300">
+        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
           <Icon size={22} />
         </span>
         <div>
@@ -49,14 +49,14 @@ export function PageHeader({ icon: Icon, title, subtitle, right }) {
 }
 
 const TONES = {
-  indigo: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-300',
+  emerald: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-300',
   rose: 'bg-rose-500/10 text-rose-600 dark:text-rose-300',
   emerald: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-300',
-  cyan: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-300',
+  teal: 'bg-teal-500/10 text-teal-600 dark:text-teal-300',
   amber: 'bg-amber-500/10 text-amber-600 dark:text-amber-300',
 };
 
-export function StatCard({ icon: Icon, label, value, hint, tone = 'indigo', children }) {
+export function StatCard({ icon: Icon, label, value, hint, tone = 'emerald', children }) {
   return (
     <div className="card p-5 transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
@@ -86,7 +86,7 @@ export function SpeedSelector({ disabled = false }) {
           onClick={() => setSpeed(s)}
           className={`rounded-lg px-3 py-1.5 text-xs font-semibold capitalize transition ${
             speed === s
-              ? 'bg-indigo-600 text-white shadow'
+              ? 'bg-emerald-600 text-white shadow'
               : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
           }`}
         >

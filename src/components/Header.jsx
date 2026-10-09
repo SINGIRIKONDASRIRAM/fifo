@@ -12,7 +12,7 @@ export default function Header({ theme, onToggleTheme, onOpenMenu }) {
           <Menu size={18} />
         </button>
 
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-400 text-white shadow-lg shadow-indigo-600/30">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600 via-green-600 to-teal-400 text-white shadow-lg shadow-emerald-600/30">
           <Cpu size={20} />
         </div>
         <div className="min-w-0">
@@ -22,10 +22,10 @@ export default function Header({ theme, onToggleTheme, onOpenMenu }) {
 
         <div className="ml-auto flex items-center gap-2">
           <span
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300"
+            className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300"
             title="Algorithm currently used by the simulator"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
             {config.algorithm ? ALGORITHMS[config.algorithm].name : 'No algorithm'}
           </span>
           <button
