@@ -1,4 +1,4 @@
-import { Activity, BookOpen, Check, Cpu, Hash, Layers, Play, Target, X } from 'lucide-react';
+import { Activity, BookOpen, Check, Cpu, Hash, Layers, Percent, Play, Target, X } from 'lucide-react';
 import { useSimulation } from '../context/SimulationContext';
 import { ALGORITHMS, formatPct, frameAddress } from '../lib/algorithms';
 import { ReferenceString } from '../components/SimulationViews';
@@ -61,13 +61,18 @@ export default function Dashboard({ onNavigate }) {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <StatCard icon={Hash} label="Total page references" value={dash(summary.total)} hint="Length of the reference string" tone="emerald" />
-        <StatCard icon={X} label="Page faults" value={dash(summary.faults)} hint={isConfigured ? `${formatPct(summary.faultRatio)} fault rate` : 'Pages loaded from disk'} tone="rose" />
+        <StatCard icon={X} label="Page faults" value={dash(summary.faults)} hint="Pages loaded from disk" tone="rose" />
         <StatCard icon={Check} label="Page hits" value={dash(summary.hits)} hint="Pages already in memory" tone="emerald" />
         <StatCard icon={Target} label="Hit ratio" value={dash(formatPct(summary.hitRatio))} hint="Hits ÷ total references" tone="teal">
           <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
             <div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-700" style={{ width: `${summary.hitRatio}%` }} />
+          </div>
+        </StatCard>
+        <StatCard icon={Percent} label="Fault ratio" value={dash(formatPct(summary.faultRatio))} hint="Faults ÷ total references" tone="rose">
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+            <div className="h-full rounded-full bg-gradient-to-r from-rose-500 to-pink-500 transition-all duration-700" style={{ width: `${summary.faultRatio}%` }} />
           </div>
         </StatCard>
       </section>

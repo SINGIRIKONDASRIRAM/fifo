@@ -73,8 +73,13 @@ export default function Simulator() {
 
   const progress = pages.length ? ((currentStep + 1) / pages.length) * 100 : 0;
   const soFar = current
-    ? { faults: current.faults, hits: current.hits, ratio: (current.hits / (current.index + 1)) * 100 }
-    : { faults: 0, hits: 0, ratio: 0 };
+    ? {
+        faults: current.faults,
+        hits: current.hits,
+        ratio: (current.hits / (current.index + 1)) * 100,
+        faultRatio: (current.faults / (current.index + 1)) * 100,
+      }
+    : { faults: 0, hits: 0, ratio: 0, faultRatio: 0 };
 
   const runLabel = running ? 'Pause' : status === 'paused' && !hasPendingChanges ? 'Resume simulation' : 'Run Simulation';
 
@@ -205,14 +210,15 @@ export default function Simulator() {
             <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
               <div className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-500" style={{ width: `${progress}%` }} />
             </div>
-            <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {[
                 { label: 'Current page', value: current ? current.page : '—', tone: 'text-emerald-600 dark:text-teal-300' },
                 { label: 'Page faults', value: soFar.faults, tone: 'text-rose-600 dark:text-rose-400' },
                 { label: 'Page hits', value: soFar.hits, tone: 'text-emerald-600 dark:text-emerald-400' },
                 { label: 'Hit ratio so far', value: formatPct(soFar.ratio), tone: 'text-slate-900 dark:text-white' },
+                { label: 'Fault ratio so far', value: formatPct(soFar.faultRatio), tone: 'text-rose-600 dark:text-rose-400' },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl bg-slate-50 p-3 dark:bg-white/5">
+                <div key={item.label} className="rounded-xl bg-slate-50 p-3 dark:bg-white/5 last:col-span-2 sm:last:col-span-1 lg:last:col-span-1">
                   <dt className="muted text-xs">{item.label}</dt>
                   <dd className={`mt-1 font-mono text-2xl font-semibold ${item.tone}`}>{item.value}</dd>
                 </div>
@@ -242,7 +248,7 @@ export default function Simulator() {
             {status === 'completed' && (
               <p className="mt-4 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-300">
                 Finished: {steps[steps.length - 1].faults} page faults and {steps[steps.length - 1].hits} hits out of {pages.length} references
-                (hit ratio {formatPct((steps[steps.length - 1].hits / pages.length) * 100)}).
+                (hit ratio {formatPct((steps[steps.length - 1].hits / pages.length) * 100)}, fault ratio {formatPct((steps[steps.length - 1].faults / pages.length) * 100)}).
               </p>
             )}
           </div>

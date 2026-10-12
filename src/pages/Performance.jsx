@@ -58,7 +58,7 @@ export default function Performance({ onNavigate }) {
           <div key={label} className="card p-5">
             <p className="muted text-sm font-medium">{label}</p>
             <p className={`mt-2 font-mono text-3xl font-semibold ${color}`}>{data.faults} <span className="text-base font-normal text-slate-500">faults</span></p>
-            <p className="muted mt-1 text-xs">{data.hits} hits · hit ratio {formatPct(data.hitRatio)}</p>
+            <p className="muted mt-1 text-xs">{data.hits} hits · hit ratio {formatPct(data.hitRatio)} · fault ratio {formatPct(data.faultRatio)}</p>
           </div>
         ))}
         <div className="card p-5">
